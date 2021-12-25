@@ -1,3 +1,9 @@
+var loader = setInterval(function () {
+  if (document.readyState !== "complete") return;
+  clearInterval(loader);
+  document.querySelector(".spinner-wrapper").style.display = "none";
+}, 400);
+
 const searchSimilarProducts = async (e) => {
   e.preventDefault();
   try {
@@ -184,6 +190,7 @@ const trackPriceReduction = (e) => {
       );
       const data = await response.json();
       console.log(data);
+      // TODO: show success message
     });
   } catch (error) {
     console.error(error);

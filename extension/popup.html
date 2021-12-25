@@ -19,6 +19,16 @@
     <link rel="stylesheet" href="popup.css" />
   </head>
   <body>
+    <div class="spinner-wrapper">
+      <div class="sk-chase">
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+      </div>
+    </div>
     <main>
       <div class="p-6 w-96">
         <h1 class="text-3xl font-semibold">Money</h1>
@@ -31,6 +41,7 @@
           <form id="price-reduce-form">
             <p>Enter CSS selector</p>
             <input
+              required
               id="price-css-selector-input"
               class="border rounded-lg px-2 py-1"
               type="text"
@@ -38,6 +49,7 @@
             />
             <p>Enter email address</p>
             <input
+              required
               id="price-user-email"
               class="border rounded-lg px-2 py-1"
               type="text"
@@ -53,6 +65,7 @@
           <form id="trackStockArrivalForm">
             <p>Enter unavailable keyword</p>
             <input
+              required
               id="stock-unavailable-keyword"
               class="border rounded-lg px-2 py-1"
               type="text"
@@ -60,6 +73,7 @@
             />
             <p>Enter email address</p>
             <input
+              required
               id="stock-user-email"
               class="border rounded-lg px-2 py-1"
               type="text"
@@ -75,6 +89,7 @@
           <form id="searchSimilarProductsForm">
             <p>Enter product name</p>
             <input
+              required
               class="border rounded-lg px-2 py-1 search-similar-products-input"
               type="text"
               placeholder="PlayStation"

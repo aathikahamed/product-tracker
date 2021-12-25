@@ -153,13 +153,11 @@ app.listen(5000, async () => {
     // Check if prices have changed.
     const websites = await PriceReduced.findAll();
     websites.forEach(async (website) => {
-      const { website_url, css_path_to_price } = website;
+      const { website_url, css_path_to_price, initial_price } = website;
       const newPrice = await getPriceFromCssSelector(
         website_url,
         css_path_to_price
       );
-      console.log(website.email);
-      let initial_price = "400";
       console.log(newPrice, initial_price);
       if (newPrice < initial_price) {
         console.log("price has decreased, sending email");
