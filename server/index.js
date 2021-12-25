@@ -72,9 +72,9 @@ const PriceReduced = sequelize.define("price_reduced", {
 });
 
 // Create the "stock_arrives" table.
-StockArrives.sync({ force: true });
+StockArrives.sync();
 // Create the "price_reduced" table.
-PriceReduced.sync({ force: true });
+PriceReduced.sync();
 
 const getPriceFromCssSelector = async (website_url, css_path_to_price) => {
   const response = await axios.get(website_url);
@@ -82,6 +82,61 @@ const getPriceFromCssSelector = async (website_url, css_path_to_price) => {
   const price = $("body").find(css_path_to_price).text();
   return price.slice(1);
 };
+
+app.get("/price-history", async (req, res) => {
+  // const { amazon_url } = req.query;
+  // // console.log(amazon_url);
+  // const options = {
+  //   method: "GET",
+  //   url: "https://amazon-historical-price.p.rapidapi.com/api/sc/amazon/historical_price",
+  //   params: { item_url: amazon_url },
+  //   headers: {
+  //     "x-rapidapi-host": "amazon-historical-price.p.rapidapi.com",
+  //     "x-rapidapi-key": process.env.RAPID_API_KEY,
+  //   },
+  // };
+  // const { data } = await axios.request(options);
+  // console.log(data);
+  res.json({
+    code: 200,
+    msg: "success",
+    data: {
+      price_detail: {
+        price_max: 16900,
+        price_max_timestamp: 1638288000,
+        price_min: 15900,
+        price_min_timestamp: 1640448000,
+        price_current: 15900,
+        trend: "down",
+        trend_detail: [
+          {
+            x: 1634832000,
+            y: 16900,
+          },
+          {
+            x: 1638288000,
+            y: 16900,
+          },
+          {
+            x: 1638374400,
+            y: 15900,
+          },
+          {
+            x: 1640448000,
+            y: 15900,
+          },
+        ],
+        period: 360,
+      },
+      item_info: {
+        title: "New Apple AirPods (3rd generation)",
+        url: "https://www.amazon.co.uk/dp/B09JQQDLXF/",
+        main_img:
+          "https://m.media-amazon.com/images/I/61Z5J-fq7KL._AC_UL320_.jpg",
+      },
+    },
+  });
+});
 
 app.post("/track-stock-arrival", async (req, res) => {
   const { website_url, unavailable_keyword, email } = req.body;
@@ -180,5 +235,5 @@ app.listen(5000, async () => {
         console.log("price has not decreased");
       }
     });
-  }, 1000 * 10); // Check every hour.
+  }, 1000 * 60 * 60); // Check every hour.
 });

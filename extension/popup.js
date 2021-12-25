@@ -197,6 +197,48 @@ const trackPriceReduction = (e) => {
   }
 };
 
+document.addEventListener("DOMContentLoaded", () => {
+  chrome.tabs.getSelected(null, async (tab) => {
+    const url = tab.url;
+    if (url.startsWith("https://www.amazon.")) {
+      document.querySelector("#not-amazon").style.display = "none";
+      const response = await fetch(
+        `http://localhost:5000/price-history?amazon_url=${encodeURIComponent(
+          url
+        )}`
+      );
+      const { data } = await response.json();
+      console.log(data.price_detail);
+      const price_trend = data.price_detail.trend_detail;
+      price_trend.map((price_point) => {
+        // price_point.x = new Date(price_point.x * 1000);
+        price_point.y = price_point.y / 100;
+      });
+      console.log(price_trend);
+      new Chart(document.getElementById("myChart1").getContext("2d"), {
+        type: "scatter",
+        data: {
+          datasets: [
+            {
+              label: "Price",
+              data: price_trend,
+              lineTension: 0,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            x: {
+              type: "linear",
+              position: "bottom",
+            },
+          },
+        },
+      });
+    }
+  });
+});
+
 document
   .querySelector("#searchSimilarProductsForm")
   .addEventListener("submit", searchSimilarProducts);
