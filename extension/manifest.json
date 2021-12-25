@@ -1,0 +1,11 @@
+{
+  "manifest_version": 2,
+  "name": "Highlight",
+  "version": "1.0.0",
+  "description": "Google Chrome",
+  "browser_action": {
+    "default_icon": "icons/icon.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": ["tabs"]
+}

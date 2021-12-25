@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+      integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main>
+      <div class="p-6 w-96">
+        <h1 class="text-3xl font-semibold">Money</h1>
+
+        <a class="topLeft" href="popup.html"><b>Home</b></a>
+        <a class="topRight" href="About.html"><b>About</b></a>
+
+        <div class="form_design">
+          <h2 class="text-lg mt-2">Notify when price reduces</h2>
+          <form id="price-reduce-form">
+            <p>Enter CSS selector</p>
+            <input
+              id="price-css-selector-input"
+              class="border rounded-lg px-2 py-1"
+              type="text"
+              placeholder="#price"
+            />
+            <p>Enter email address</p>
+            <input
+              id="price-user-email"
+              class="border rounded-lg px-2 py-1"
+              type="text"
+              placeholder="hello@email.com"
+            />
+            <br />
+            <button class="rounded-lg text-white px-2 py-1 mt-2">Track</button>
+          </form>
+        </div>
+
+        <div class="form_design">
+          <h2 class="text-lg mt-4">Notify when stock arrives</h2>
+          <form id="trackStockArrivalForm">
+            <p>Enter unavailable keyword</p>
+            <input
+              id="stock-unavailable-keyword"
+              class="border rounded-lg px-2 py-1"
+              type="text"
+              placeholder="Currently Unavailable"
+            />
+            <p>Enter email address</p>
+            <input
+              id="stock-user-email"
+              class="border rounded-lg px-2 py-1"
+              type="text"
+              placeholder="hello@email.com"
+            />
+            <br />
+            <button class="rounded-lg text-white px-2 py-1 mt-2">Track</button>
+          </form>
+        </div>
+
+        <div class="form_design">
+          <h2 class="text-lg mt-4">Similar products</h2>
+          <form id="searchSimilarProductsForm">
+            <p>Enter product name</p>
+            <input
+              class="border rounded-lg px-2 py-1 search-similar-products-input"
+              type="text"
+              placeholder="PlayStation"
+            />
+            <br />
+            <button class="rounded-lg text-white px-2 py-1 mt-2">Find</button>
+          </form>
+        </div>
+
+        <div class="form_design">
+          <h2 class="text-lg mt-4">Price history</h2>
+
+          <p>Not available on this website</p>
+        </div>
+      </div>
+
+      <hr />
+
+      <!-- best rated -->
+      <a id="best_output" href="#"></a>
+      <p id="bestRated_price"></p>
+      <p id="best_rating"></p>
+      <img id="bestRated_show" src="#" />
+
+      <hr />
+      <!-- Lowest Price -->
+      <a id="lowprice_output" href="#" target="_blank"></a>
+      <p id="low_price"></p>
+      <p id="lowprice_rating"></p>
+      <img id="lowprice_show" src="#" />
+      <hr />
+
+      <p id="Others"></p>
+
+      <!-- First item -->
+      <a id="output1" href="#" target="_blank"></a>
+      <p id="price1"></p>
+      <p id="rating1"></p>
+      <img id="show1" src="#" />
+
+      <!-- Second item -->
+      <a id="output2" href="#" target="_blank"></a>
+      <p id="price2"></p>
+      <p id="rating2"></p>
+      <img id="show2" src="#" />
+
+      <!-- Third item -->
+      <a id="output3" href="#" target="_blank"></a>
+      <p id="price3"></p>
+      <p id="rating3"></p>
+      <img id="show3" src="#" />
+
+      <!-- Fourth item -->
+      <a id="output4" href="#" target="_blank"></a>
+      <p id="price4"></p>
+      <p id="rating4"></p>
+      <img id="show4" src="#" />
+
+      <script src="popup.js"></script>
+    </main>
+  </body>
+</html>

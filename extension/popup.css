@@ -1,0 +1,65 @@
+* {
+  font-family: "IBM Plex Sans", sans-serif;
+  text-align: center;
+}
+
+body {
+  border: 5px solid rgba(5, 0, 51, 0.7);
+  background: rgb(240, 240, 240);
+}
+
+h1 {
+  font-family: cursive;
+  padding: 2%;
+  border-top: 2.5px solid rgb(0, 0, 0);
+  border-bottom: 2.5px solid rgb(0, 0, 0);
+}
+
+p {
+  font-size: 120%;
+}
+
+#Others {
+  text-decoration: underline;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a {
+  font-size: 120%;
+}
+
+main {
+  margin: auto;
+}
+
+img {
+  margin: 4%;
+  width: 80%;
+  margin-left: 10%;
+  display: none;
+}
+
+.form_design {
+  margin-top: 6%;
+  margin-bottom: 6%;
+}
+
+input {
+  background: rgb(255, 255, 255);
+  width: 70%;
+  border: 3px solid rgba(5, 0, 51, 0.56);
+}
+
+button {
+  width: 70%;
+  color: white;
+  background-color: rgba(5, 0, 51, 0.7);
+  border: 2px solid whi;
+}
+
+hr {
+  border: 2px solid black;
+}
