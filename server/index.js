@@ -181,7 +181,7 @@ app.listen(5000, async () => {
     websites.forEach(async (website) => {
       const { website_url, unavailable_keyword } = website;
       const { data } = await axios(website_url);
-      if (data.indexOf(unavailable_keyword) !== -1) {
+      if (data.indexOf(unavailable_keyword) === -1) {
         console.log("keyword not found, item back in stock, sending email");
         const msg = {
           to: website.email,
