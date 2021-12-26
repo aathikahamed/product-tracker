@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+      integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="spinner-wrapper">
+      <div class="sk-chase">
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+      </div>
+    </div>
+    <main>
+      <div class="p-6 w-96">
+        <h1 class="text-3xl font-semibold">Money</h1>
+
+        <section class="bg_white">
+            <a class="topLeft" href="popup.html"><b>Home</b></a>
+            <a class="topMiddle" href="About.html"><b>About</b></a>
+            <a class="topRight" href="instructions.html"><b>Instructions</b></a>
+        </section>
+
+        <p id="quote">We care about your money.<p>
+
+          
+          <section class="card">
+            <p class="bg_white">Find similar products:</p>
+            <p class="details">Search any products you want, this extension will find the best rated and the lowest priced product available on the internet along with some other options.</p>
+            <ul>
+                <li>&#9733;You will get the title, price, rating and the image of the product.</li>
+                <li>&#9733;You can click the title of the product to take you to the website that has listed the product.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <p class="bg_white">Reduced price notifier:</p>
+            <p class="details">This involves a little work but once the setup is complete it will continuously look for price reduction and will notify you instantly.</p>
+            <ul>
+                <li>&#9733; Inspect element</li>
+            </ul>
+            <img src="icons/Screenshot.png">
+            <ul>
+                <li>&#9733;Hover over the price to get the Id</li>
+                <li>&#9733;Enter the id and your email address</li>
+            </ul>
+        </section>
+                <section class="card">
+            <p class="bg_white">Stock availability notifier:</p>
+            <ul>
+                <li>&#9733; Enter a keyword that might change when stock becomes available, for example: Unavailable which will change to Available,
+                     "Out of Stock" will change to Stock available and so on. As soon as a change it detected, this extension will notify you instantly.</li>
+            </ul>
+        </section>  
+
+        <section class="card">
+            <p class="bg_white">Amazon exclusive price history:</p>
+            <p class="details">This feature is currently available for Amazon only</p>
+            <ul>
+                <li>&#9733;When you are on a product page of Amazon's website, open the extension you will find the price history of the product instantly.
+            </ul>
+        </section>
+    
+
+
+    <script src="popup.js"></script>
+    </main>
+  </body>
+</html>

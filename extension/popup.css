@@ -107,10 +107,6 @@ body {
   background: rgb(240, 240, 240);
 }
 
-.heading {
-  background-color: white;
-}
-
 h1 {
   font-family: cursive;
   padding: 2%;
@@ -118,16 +114,32 @@ h1 {
   border-bottom: 2.5px solid rgb(0, 0, 0);
 }
 
+.bg_white {
+  background-color: white;
+}
+
 .topLeft {
   margin-top: 3%;
-  padding: 10%;
-  font-size: 165%;
+  padding: 9%;
+  font-size: 150%;
+}
+
+.topMiddle {
+  margin-top: 3%;
+  font-size: 150%;
 }
 
 .topRight {
   margin-top: 3%;
-  padding: 10%;
-  font-size: 165%;
+  padding: 9%;
+  font-size: 150%;
+}
+
+#history1,
+#history2,
+#history3,
+#history4 {
+  margin-top: 8%;
 }
 
 .card {
@@ -142,6 +154,12 @@ h1 {
 
 p {
   font-size: 120%;
+}
+
+.details {
+  font-size: 110%;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 .copyright {

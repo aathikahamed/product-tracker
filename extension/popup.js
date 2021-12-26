@@ -2,7 +2,7 @@ var loader = setInterval(function () {
   if (document.readyState !== "complete") return;
   clearInterval(loader);
   document.querySelector(".spinner-wrapper").style.display = "none";
-}, 400);
+}, 250);
 
 const searchSimilarProducts = async (e) => {
   e.preventDefault();
@@ -11,6 +11,7 @@ const searchSimilarProducts = async (e) => {
       ".search-similar-products-input"
     ).value;
     const url = `http://localhost:5000/get-similar-products?name=${productName}`;
+    document.querySelector(".spinner-wrapper").style.display = "block";
     const response = await fetch(url);
     const data = await response.json();
 
@@ -137,6 +138,7 @@ const searchSimilarProducts = async (e) => {
   } catch (error) {
     console.error(error);
   }
+  document.querySelector(".spinner-wrapper").style.display = "none";
 };
 
 const trackStockArrival = (e) => {
@@ -160,11 +162,12 @@ const trackStockArrival = (e) => {
       });
       const data = await response.json();
       console.log(data);
-      // TODO: show success message
     });
   } catch (error) {
     console.error(error);
   }
+  document.getElementById("stockOutput").innerHTML =
+    "Success!" + "</br>" + "If the stock arrives, you will receive an email.";
 };
 
 const trackPriceReduction = (e) => {
@@ -190,11 +193,12 @@ const trackPriceReduction = (e) => {
       );
       const data = await response.json();
       console.log(data);
-      // TODO: show success message
     });
   } catch (error) {
     console.error(error);
   }
+  document.getElementById("priceOutput").innerHTML =
+    "Success!" + "</br>" + "If the price reduces you will receive an email.";
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -210,35 +214,60 @@ document.addEventListener("DOMContentLoaded", () => {
       const { data } = await response.json();
       console.log(data.price_detail);
       const price_trend = data.price_detail.trend_detail;
-      price_trend.map((price_point) => {
-        // price_point.x = new Date(price_point.x * 1000);
-        price_point.y = price_point.y / 100;
-      });
       console.log(price_trend);
-      new Chart(document.getElementById("myChart1").getContext("2d"), {
-        type: "scatter",
-        data: {
-          datasets: [
-            {
-              label: "Price",
-              data: price_trend,
-              lineTension: 0,
-            },
-          ],
-        },
-        options: {
-          scales: {
-            x: {
-              type: "linear",
-              position: "bottom",
-            },
-          },
-        },
-      });
+      var date = new Date(price_trend[0].x * 1000);
+      console.log(date);
+      document.getElementById("history1").innerHTML =
+        "<em>" +
+        "<u>" +
+        "First data: " +
+        "</u>" +
+        "</em>" +
+        "</br>" +
+        "Date: " +
+        new Date(price_trend[0].x * 1000) +
+        "</br>" +
+        "Price: " +
+        price_trend[0].y / 100;
+      document.getElementById("history2").innerHTML =
+        "<em>" +
+        "<u>" +
+        "Second data: " +
+        "</u>" +
+        "</em>" +
+        "</br>" +
+        "Date: " +
+        new Date(price_trend[1].x * 1000) +
+        "</br>" +
+        "Price: " +
+        price_trend[1].y / 100;
+      document.getElementById("history3").innerHTML =
+        "<em>" +
+        "<u>" +
+        "Third data: " +
+        "</u>" +
+        "</em>" +
+        "</br>" +
+        "Date: " +
+        new Date(price_trend[2].x * 1000) +
+        "</br>" +
+        "Price: " +
+        price_trend[2].y / 100;
+      document.getElementById("history4").innerHTML =
+        "<em>" +
+        "<u>" +
+        "Fourth data: " +
+        "</u>" +
+        "</em>" +
+        "</br>" +
+        "Date: " +
+        new Date(price_trend[3].x * 1000) +
+        "</br>" +
+        "Price: " +
+        price_trend[3].y / 100;
     }
   });
 });
-
 document
   .querySelector("#searchSimilarProductsForm")
   .addEventListener("submit", searchSimilarProducts);

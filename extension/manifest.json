@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "Highlight",
+  "name": "Money",
   "version": "1.0.0",
   "description": "Google Chrome",
   "browser_action": {

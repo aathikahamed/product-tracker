@@ -33,8 +33,11 @@
       <div class="p-6 w-96">
         <h1 class="text-3xl font-semibold">Money</h1>
 
-        <a class="topLeft" href="popup.html"><b>Home</b></a>
-        <a class="topRight" href="About.html"><b>About</b></a>
+        <section class="bg_white">
+          <a class="topLeft" href="popup.html"><b>Home</b></a>
+          <a class="topMiddle" href="About.html"><b>About</b></a>
+          <a class="topRight" href="instructions.html"><b>Instructions</b></a>
+        </section>
 
         <div class="form_design">
           <h2 class="text-lg mt-2">Notify when price reduces</h2>
@@ -57,6 +60,7 @@
             />
             <br />
             <button class="rounded-lg text-white px-2 py-1 mt-2">Track</button>
+            <p id="priceOutput"></p>
           </form>
         </div>
 
@@ -81,6 +85,7 @@
             />
             <br />
             <button class="rounded-lg text-white px-2 py-1 mt-2">Track</button>
+            <p id="stockOutput"></p>
           </form>
         </div>
 
@@ -103,7 +108,10 @@
           <h2 class="text-lg mt-4">Price history</h2>
 
           <p id="not-amazon">Not available on this website</p>
-          <canvas id="myChart1"></canvas>
+          <p id="history1"></p>
+          <p id="history2"></p>
+          <p id="history3"></p>
+          <p id="history4"></p>
         </div>
       </div>
 
@@ -149,7 +157,6 @@
       <p id="rating4"></p>
       <img id="show4" src="#" />
 
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
       <script src="popup.js"></script>
     </main>
   </body>
